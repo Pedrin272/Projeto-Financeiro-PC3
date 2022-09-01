@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 
 import { MaterialExampleModule } from 'src/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ProdutoFormComponent } from './components/produto-form/produto-form.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     Pagina1Component,
     Pagina2Component,
     PaginaPrincipalComponent,
+    ProdutoFormComponent,
   ],
   imports: [
     BrowserModule,

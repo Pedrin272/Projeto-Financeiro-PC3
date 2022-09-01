@@ -13,9 +13,14 @@ const PRODUCTS = API+'/produto';
 })
 export class ProductsService {
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(private httpClient: HttpClient) {
   }
   selectAll(){
     return this.httpClient.get<Products[]>(PRODUCTS);
+  }
+  postObj(obj: Products){
+    return this.httpClient.post(PRODUCTS, {
+      obj
+    });
   }
 }
