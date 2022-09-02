@@ -1,9 +1,13 @@
 <div class="div-principal p-5">
-  <p class="mb-5">pagina-principal works!</p>
+  <p class="mb-5">Pagina de Transações</p>
 
   <div class="d-flex justify-content-evenly">
     <button type="button" class="btn btn-danger" (click)="navegarPara(['pagina1'])"> Pagina 1 </button>
     <button type="button" class="btn btn-primary" (click)="navegarPara(['pagina2'])"> Pagina 2 </button>
+  </div>
+  <div class="d-flex flex-row">
+    <button type="button" class="btn btn-primary flex-end" > Novo! </button>
+    <button type="button" class="btn btn-danger flex-end" > Delete</button>
   </div>
   <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>

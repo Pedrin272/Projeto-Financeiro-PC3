@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Products } from 'src/app/models/products/products';
 import { ProductsService } from 'src/app/models/products/products.service';
+import { PageDialogComponent } from '../page-dialog/page-dialog.component';
 
 @Component({
   selector: 'app-pagina1',
@@ -18,12 +20,13 @@ export class Pagina1Component implements OnInit {
   constructor(
     private router: Router,
     private productsService: ProductsService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit() {
-      
+
       let that = this;
-  
+
       this.productsService.selectAll().subscribe(
         {
           next(produtos){
@@ -38,6 +41,15 @@ export class Pagina1Component implements OnInit {
           }
         }
       );
+  }
+  onAdd(){
+    this.dialog.open( PageDialogComponent, {
+      width: '500px',
+      height: '500px',
+    });
+  }
+  onDelete(){
+
   }
 
   navegarPara(rota: any[]){

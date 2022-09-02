@@ -19,8 +19,29 @@ export class ProductsService {
     return this.httpClient.get<Products[]>(PRODUCTS);
   }
   postObj(obj: Products){
-    return this.httpClient.post(PRODUCTS, {
-      obj
-    });
+    return this.httpClient.post<Products>(PRODUCTS,obj);
+  }
+  selectById(id: string) {
+    return this.httpClient.get<Products>(PRODUCTS + '/' + id);
+  }
+
+  insert(transacao: Products) {
+    return this.httpClient.post<Products>(PRODUCTS, transacao);
+  }
+  update(transacao: Products) {
+    return this.httpClient.put<Products>(
+      PRODUCTS + '/' + transacao.id,
+      transacao
+    );
+  }
+  isertOrUpdate(transacao: Products) {
+    if (transacao && transacao.id) {
+      return this.update(transacao);
+    } else {
+      return this.insert(transacao);
+    }
+  }
+  delete(id: number) {
+    return this.httpClient.delete<Products>(PRODUCTS + '/' + id);
   }
 }
